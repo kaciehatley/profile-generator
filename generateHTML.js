@@ -32,9 +32,10 @@ const colors = {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-        <title>Document</title>
+        <title>${data.data.name}'s Resume</title>
         <style>
             @page {
               margin: 0;
@@ -53,10 +54,10 @@ const colors = {
            }
            .wrapper {
            background-color: ${colors[colorData.color].wrapperBackground};
-           padding-top: 100px;
+           padding-top: 30px;
            }
            body {
-           background-color: white;
+           background-color: ${colors[colorData.color].wrapperBackground};
            -webkit-print-color-adjust: exact !important;
            font-family: 'Cabin', sans-serif;
            }
@@ -96,7 +97,6 @@ const colors = {
            flex-wrap: wrap;
            background-color: ${colors[colorData.color].headerBackground};
            color: ${colors[colorData.color].headerColor};
-           padding: 10px;
            width: 95%;
            border-radius: 6px;
            }
@@ -114,13 +114,14 @@ const colors = {
            text-align: center;
            }
            .photo-header h1 {
-           margin-top: 10px;
+           margin-top: 5px;
            }
            .links-nav {
            width: 100%;
            text-align: center;
-           padding: 20px 0;
+           padding: 5px 0;
            font-size: 1.1em;
+           margin: 5px;
            }
            .nav-link {
            display: inline-block;
@@ -170,6 +171,10 @@ const colors = {
            color: inherit;
            font-weight: bold;
            }
+
+           i {
+            padding-right: 10px;
+           }
   
            @media print { 
             body { 
@@ -184,6 +189,10 @@ const colors = {
               <h1>Hi!</h1>
               <h1>My name is ${data.data.name}!</h1>
               <h6>${data.data.bio}</h6>
+              <ul class="links-nav">
+                <li class="nav-link"><a href='${data.data.html_url}'target='_blank'><i class="fab fa-github"></i>Github</a></li>
+                <li class="nav-link"><a href='https://www.google.com/maps/place/${data.data.location}'><i class="fas fa-location-arrow"></i>${data.data.location}</a></li>
+              </ul>
               <img class="photo-header" src=${data.data.avatar_url}>
             </div>
           </div>
