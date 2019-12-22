@@ -26,6 +26,17 @@ const colors = {
   };
   
   var generateHTML = function(colorData, data) {
+    var hireable = function (forHire) {
+      if (forHire === null) {
+        return "Contact for more info"
+      }
+      else if (forHire === true)  {
+        return "Yes"
+      }
+      else if (forHire === false) {
+        return "No"
+      }
+    }
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -210,7 +221,7 @@ const colors = {
           <div class="row">
             <div class="col card">
               <h3>Available For Hire?</h3>
-              <h5>${data.data.hireable}</h5>
+              <h5>${hireable(data.data.hireable)}</h5>
             </div>
             <div class="col card">
               <h3>Total Number Following</h3>
